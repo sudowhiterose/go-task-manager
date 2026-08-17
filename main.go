@@ -1,8 +1,6 @@
 package main
 
-import (
-	"https://github.com/sudowhiterose/go-todo-cli/cmd"
-)
+import "main.go/cmd"
 
 func main() {
 	cmd.Execute()
