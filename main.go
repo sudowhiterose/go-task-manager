@@ -1,7 +1,7 @@
 package main
 
-import "main.go/cmd"
+import todo "main.go/internal"
 
 func main() {
-	cmd.Execute()
+	todo.Execute()
 }
