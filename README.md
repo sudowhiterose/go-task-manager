@@ -19,7 +19,7 @@ Simple CLI task manager written in Go.
 ## 🚀 Quick Start
 
 ```bash
-git clone https://github.com/sudowhiterose/go-task-manager.git
+download latest release 
 ./go-task-manager
 ```
 ## 📖 Usage
