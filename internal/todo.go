@@ -1,12 +1,19 @@
 package todo
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
 )
+
+type task struct {
+	ID   int    `json:"id"`
+	Text string `json:"text"`
+	Done bool   `json:"done"`
+}
 
 var rootCmd = &cobra.Command{
 	Use:   "tasker",
@@ -79,4 +86,29 @@ func initConfig() {
 	if err := viper.ReadInConfig(); err == nil {
 		fmt.Println("Using config file:", viper.ConfigFileUsed())
 	}
+}
+
+const dbFile = "tasks.json"
+
+func loadtasks() ([]task, error) {
+	if _, err := os.Stat(dbFile); os.IsNotExist(err) {
+		return []task{}, nil
+	}
+
+	data, err := os.ReadFile(dbFile)
+	if err != nil {
+		return nil, err
+	}
+
+	var tasks []task
+	err = json.Unmarshal(data, &tasks)
+	return tasks, err
+}
+
+func savetasks(tasks []task) error {
+	data, err := json.MarshalIndent(tasks, "", " ")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(dbFile, data, 0644)
 }
