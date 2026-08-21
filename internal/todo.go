@@ -17,9 +17,9 @@ type task struct {
 }
 
 var rootCmd = &cobra.Command{
-	Use:   "tasker",
-	Short: "Tasker is a CLI for managing your tasks",
-	Long:  `A longer description that spans multiple lines and contains examples.`,
+	Use:   "go-task-manager",
+	Short: "go-task-manager is a CLI for managing your tasks",
+	Long:  `go-task-manager is a CLI for managing your tasks`,
 }
 
 var listCmd = &cobra.Command{
