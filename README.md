@@ -22,6 +22,3 @@ Simple CLI task manager written in Go.
 download latest release 
 ./go-task-manager
 ```
-
-## 📄 License
-This project is licensed under the MIT License — see the LICENSE file for details.
