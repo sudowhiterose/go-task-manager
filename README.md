@@ -6,15 +6,12 @@
 
 Simple CLI task manager written in Go.  
 
----
-
 ## 🛠️ Features
 
 - add — add a new task
 - list — show all tasks
 - done — mark a task as completed
 - delete — remove a task by ID
----
 
 ## 🚀 Quick Start
 
