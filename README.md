@@ -6,6 +6,13 @@
 
 Simple CLI task manager written in Go.  
 
+## 📄 Output example
+```
+Your task list:
+[X] ID: 1 - buy-juice
+[ ] ID: 2 - buy-bread
+[ ] ID: 3 - juice
+```
 ## 🛠️ Features
 
 - add — add a new task
