@@ -22,21 +22,6 @@ Simple CLI task manager written in Go.
 download latest release 
 ./go-task-manager
 ```
-## 📖 Usage
-# Add a task
-./go-task-manager add "Buy milk"
-
-# List all tasks
-./go-task-manager list
-
-# Mark task as done
-./go-task-manager done 1
-
-# Delete a task
-./go-task-manager delete 1
-
-Example output of list:
-[X] ID: 1 - Buy milk
 
 ## 📄 License
 This project is licensed under the MIT License — see the LICENSE file for details.
