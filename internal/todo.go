@@ -29,16 +29,16 @@ var listCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		tasks, err := loadtasks()
 		if err != nil {
-			fmt.Println("Ошибка загрузки задач:", err)
+			fmt.Println("Error loading tasks:", err)
 			return
 		}
 
 		if len(tasks) == 0 {
-			fmt.Println("Список задач пуст.")
+			fmt.Println("Task list is empty.")
 			return
 		}
 
-		fmt.Println("Ваш список задач:")
+		fmt.Println("Your task list:")
 		for _, t := range tasks {
 			status := " "
 			if t.Done {
@@ -56,7 +56,7 @@ var addCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		tasks, err := loadtasks()
 		if err != nil {
-			fmt.Println("Ошибка загрузки задач:", err)
+			fmt.Println("Error loading tasks:", err)
 			return
 		}
 
@@ -75,11 +75,11 @@ var addCmd = &cobra.Command{
 
 		err = savetasks(tasks)
 		if err != nil {
-			fmt.Println("Ошибка保存ения задачи:", err)
+			fmt.Println("Error saving task:", err)
 			return
 		}
 
-		fmt.Printf("Задача успешно добавлена (ID: %d)\n", newID)
+		fmt.Printf("Task successfully added (ID: %d)\n", newID)
 	},
 }
 
@@ -90,13 +90,13 @@ var deleteCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		id, err := strconv.Atoi(args[0])
 		if err != nil {
-			fmt.Println("Ошибка: ID должен быть числом")
+			fmt.Println("Error: ID must be a number")
 			return
 		}
 
 		tasks, err := loadtasks()
 		if err != nil {
-			fmt.Println("Ошибка загрузки задач:", err)
+			fmt.Println("Error loading tasks:", err)
 			return
 		}
 
@@ -111,17 +111,17 @@ var deleteCmd = &cobra.Command{
 		}
 
 		if !found {
-			fmt.Printf("Задача с ID %d не найдена\n", id)
+			fmt.Printf("Task with ID %d not found\n", id)
 			return
 		}
 
 		err = savetasks(updatedTasks)
 		if err != nil {
-			fmt.Println("Ошибка сохранения файла:", err)
+			fmt.Println("Error saving file:", err)
 			return
 		}
 
-		fmt.Printf("Задача с ID %d успешно удалена\n", id)
+		fmt.Printf("Task with ID %d successfully deleted\n", id)
 	},
 }
 
@@ -132,13 +132,13 @@ var doneCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		id, err := strconv.Atoi(args[0])
 		if err != nil {
-			fmt.Println("Ошибка: ID должен быть числом")
+			fmt.Println("Error: ID must be a number")
 			return
 		}
 
 		tasks, err := loadtasks()
 		if err != nil {
-			fmt.Println("Ошибка загрузки задач:", err)
+			fmt.Println("Error loading tasks:", err)
 			return
 		}
 
@@ -152,17 +152,17 @@ var doneCmd = &cobra.Command{
 		}
 
 		if !found {
-			fmt.Printf("Задача с ID %d не найдена\n", id)
+			fmt.Printf("Task with ID %d not found\n", id)
 			return
 		}
 
 		err = savetasks(tasks)
 		if err != nil {
-			fmt.Println("Ошибка сохранения файла:", err)
+			fmt.Println("Error saving file:", err)
 			return
 		}
 
-		fmt.Printf("Задача с ID %d отмечена как выполненная\n", id)
+		fmt.Printf("Task with ID %d marked as done\n", id)
 	},
 }
 
