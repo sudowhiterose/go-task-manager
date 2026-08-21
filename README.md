@@ -26,3 +26,7 @@ Your task list:
 download latest release 
 ./go-task-manager
 ```
+
+## Used libs
+- cobra
+- viper
